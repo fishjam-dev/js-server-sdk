@@ -35,16 +35,19 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "gen:proto": "sh codegen/protobuf.sh",
+    "gen:api": "sh codegen/openapi.sh"
   },
   "dependencies": {
     "axios": "^1.6.8",
-    "ts-proto": "^1.172.0"
+    "protobufjs": "^7.2.6"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.13.4",
     "@types/node": "^20.12.7",
     "prettier": "3.2.5",
+    "ts-proto": "^1.172.0",
     "typescript": "^5.4.5"
   }
 }

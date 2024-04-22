@@ -1,7 +1,10 @@
 #!/bin/sh
 
-# Terminate on errors
 set -e
+
+ROOTDIR=$(dirname $(dirname "$(readlink -f $0)"))
+
+cd $ROOTDIR
 
 printf "Synchronising submodules... "
 git submodule sync --recursive >> /dev/null
