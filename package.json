@@ -36,6 +36,7 @@
     "build": "tsc",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "docs": "typedoc --out docs src",
     "gen:proto": "sh codegen/protobuf.sh",
     "gen:api": "sh codegen/openapi.sh"
   },
@@ -48,6 +49,7 @@
     "@types/node": "^20.12.7",
     "prettier": "3.2.5",
     "ts-proto": "^1.172.0",
+    "typedoc": "^0.25.13",
     "typescript": "^5.4.5"
   }
 }
