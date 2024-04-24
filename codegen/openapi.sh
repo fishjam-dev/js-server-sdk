@@ -19,4 +19,4 @@ cd $ROOTDIR \
 && npx openapi-generator-cli generate \
   -i https://raw.githubusercontent.com/jellyfish-dev/jellyfish/$1/openapi.yaml \
   -g typescript-axios \
-  -o src
+  -o src/openapi

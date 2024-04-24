@@ -30,8 +30,5 @@ jobs:
       - name: Check typing
         run: npm run build:check
 
-      # TODO: uncomment once '[warning] RequestArgs, defined in ./src/base.ts, is referenced by
-      #       HealthApiAxiosParamCreator.HealthApiAxiosParamCreator.__type.healthcheck.__type.__type but not included
-      #       in the documentation.' warning gets resolved
-      # - name: Check docs
-      #   run: npm run docs:check
+      - name: Check docs
+        run: npm run docs

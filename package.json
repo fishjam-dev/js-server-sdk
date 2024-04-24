@@ -23,15 +23,15 @@
     "dist"
   ],
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./dist/index.js",
+    "./proto": "./dist/protos/jellyfish/index.js"
   },
   "scripts": {
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "docs": "typedoc src",
-    "docs:check": "typedoc src --treatWarningsAsErrors",
+    "docs": "typedoc src src/protos/jellyfish",
     "gen:proto": "sh codegen/protobuf.sh",
     "gen:api": "sh codegen/openapi.sh"
   },
