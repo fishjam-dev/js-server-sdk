@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Check typing
+        run: npm run build:check
+
+      # TODO: uncomment once '[warning] RequestArgs, defined in ./src/base.ts, is referenced by
+      #       HealthApiAxiosParamCreator.HealthApiAxiosParamCreator.__type.healthcheck.__type.__type but not included
+      #       in the documentation.' warning gets resolved
+      # - name: Check docs
+      #   run: npm run docs:check
