@@ -12,7 +12,7 @@ npm install @jellyfish-dev/js-server-sdk
 
 ## Documentation
 
-The latest SDK documentation is available [here](https://jellyfish-dev.github.io/js-server-sdk/main).
+The documentation for the latest release is available [here](https://jellyfish-dev.github.io/js-server-sdk/latest).
 To generate it locally, run:
 
 ```bash
