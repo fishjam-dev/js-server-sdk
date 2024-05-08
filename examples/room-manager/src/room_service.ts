@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-import { RoomApi } from '@jellyfish-dev/js-server-sdk';
+import { type Room as RemoteRoom, type Peer as RemoteUser, RoomApi } from '@jellyfish-dev/js-server-sdk';
+
 import type {
   ServerMessage,
   ServerMessage_PeerCrashed,
@@ -46,19 +47,20 @@ export class RoomService {
     const room = await this.findOrCreateRoom(roomId);
     let user = room.users.get(userId);
 
-    if (user) {
-      console.log({ message: 'The user already exists', roomId, userId });
+    // make sure the user exists on the Jellyfish server as well
+    const remoteUser = user ? await this.findRemoteUser(roomId, user.peerId) : null;
 
-      return user;
+    if (user && remoteUser) {
+      console.log({ message: 'The user already exists', roomId, userId, peerId: user.peerId });
     } else {
-      console.log({ message: 'Adding the user to the existing room', roomId, userId });
-
       user = await this.createUser(roomId, userId);
 
-      room.users.set(userId, user);
+      console.log({ message: 'Added the user to the existing room', roomId, userId, peerId: user.peerId });
 
-      return user;
+      room.users.set(userId, user);
     }
+
+    return user;
   }
 
   handleJellyfishMessage(notification: ServerMessage): void {
@@ -86,8 +88,9 @@ export class RoomService {
 
   private async findOrCreateRoom(roomId: string): Promise<Room> {
     let room = this.rooms.get(roomId);
+    const remoteRoom = await this.findRemoteRoom(roomId);
 
-    if (!room) {
+    if (!(room && remoteRoom)) {
       await this.findOrCreateRoomInJellyfish(roomId);
 
       room = { roomId, users: new Map() };
@@ -152,6 +155,14 @@ export class RoomService {
 
       throw error;
     }
+  }
+
+  private async findRemoteRoom(roomId: string): Promise<RemoteRoom | null> {
+    return (await this.roomApi.getAllRooms()).data.data.find((room) => room.id === roomId) ?? null;
+  }
+
+  private async findRemoteUser(roomId: string, peerId: string): Promise<RemoteUser | null> {
+    return (await this.roomApi.getRoom(roomId)).data.data.peers.find((peer) => peer.id === peerId) ?? null;
   }
 
   private handlePeerDown(notification: ServerMessage_PeerDeleted | ServerMessage_PeerCrashed): void {
