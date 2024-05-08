@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
@@ -32,3 +32,34 @@ jobs:
 
       - name: Check docs
         run: npm run docs
+
+  check-examples:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        directory: [examples/room-manager]
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.directory }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install SDK
+        working-directory: .
+        run: npm ci
+
+      - name: Check Room Manager example
+        working-directory: examples/room-manager
+        run: |
+          npm ci
+          npm run build:check

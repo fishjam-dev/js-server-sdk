@@ -1,0 +1,48 @@
+name: Examples CI
+
+on:
+  push:
+    branches: [main]
+    paths: ['examples/**']
+
+  pull_request:
+    branches: [main]
+    paths: ['examples/**']
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        directory: [examples/room-manager]
+
+    defaults:
+      run:
+        working-directory: ${{ matrix.directory }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install SDK
+        working-directory: .
+        run: npm ci
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Check typing
+        run: echo `ls ../..` && npm run build:check
+
+      - name: Check linting
+        run: npm run lint:check
