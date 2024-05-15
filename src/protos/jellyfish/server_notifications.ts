@@ -24,6 +24,8 @@ export interface ServerMessage {
   trackAdded?: ServerMessage_TrackAdded | undefined;
   trackRemoved?: ServerMessage_TrackRemoved | undefined;
   trackMetadataUpdated?: ServerMessage_TrackMetadataUpdated | undefined;
+  peerAdded?: ServerMessage_PeerAdded | undefined;
+  peerDeleted?: ServerMessage_PeerDeleted | undefined;
 }
 
 /** Defines message groups for which client can subscribe */
@@ -257,6 +259,8 @@ function createBaseServerMessage(): ServerMessage {
     trackAdded: undefined,
     trackRemoved: undefined,
     trackMetadataUpdated: undefined,
+    peerAdded: undefined,
+    peerDeleted: undefined,
   };
 }
 
@@ -318,6 +322,12 @@ export const ServerMessage = {
     }
     if (message.trackMetadataUpdated !== undefined) {
       ServerMessage_TrackMetadataUpdated.encode(message.trackMetadataUpdated, writer.uint32(154).fork()).ldelim();
+    }
+    if (message.peerAdded !== undefined) {
+      ServerMessage_PeerAdded.encode(message.peerAdded, writer.uint32(162).fork()).ldelim();
+    }
+    if (message.peerDeleted !== undefined) {
+      ServerMessage_PeerDeleted.encode(message.peerDeleted, writer.uint32(170).fork()).ldelim();
     }
     return writer;
   },
@@ -462,6 +472,20 @@ export const ServerMessage = {
 
           message.trackMetadataUpdated = ServerMessage_TrackMetadataUpdated.decode(reader, reader.uint32());
           continue;
+        case 20:
+          if (tag !== 162) {
+            break;
+          }
+
+          message.peerAdded = ServerMessage_PeerAdded.decode(reader, reader.uint32());
+          continue;
+        case 21:
+          if (tag !== 170) {
+            break;
+          }
+
+          message.peerDeleted = ServerMessage_PeerDeleted.decode(reader, reader.uint32());
+          continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -512,6 +536,8 @@ export const ServerMessage = {
       trackMetadataUpdated: isSet(object.trackMetadataUpdated)
         ? ServerMessage_TrackMetadataUpdated.fromJSON(object.trackMetadataUpdated)
         : undefined,
+      peerAdded: isSet(object.peerAdded) ? ServerMessage_PeerAdded.fromJSON(object.peerAdded) : undefined,
+      peerDeleted: isSet(object.peerDeleted) ? ServerMessage_PeerDeleted.fromJSON(object.peerDeleted) : undefined,
     };
   },
 
@@ -573,6 +599,12 @@ export const ServerMessage = {
     }
     if (message.trackMetadataUpdated !== undefined) {
       obj.trackMetadataUpdated = ServerMessage_TrackMetadataUpdated.toJSON(message.trackMetadataUpdated);
+    }
+    if (message.peerAdded !== undefined) {
+      obj.peerAdded = ServerMessage_PeerAdded.toJSON(message.peerAdded);
+    }
+    if (message.peerDeleted !== undefined) {
+      obj.peerDeleted = ServerMessage_PeerDeleted.toJSON(message.peerDeleted);
     }
     return obj;
   },
@@ -638,6 +670,12 @@ export const ServerMessage = {
       : undefined;
     message.trackMetadataUpdated = (object.trackMetadataUpdated !== undefined && object.trackMetadataUpdated !== null)
       ? ServerMessage_TrackMetadataUpdated.fromPartial(object.trackMetadataUpdated)
+      : undefined;
+    message.peerAdded = (object.peerAdded !== undefined && object.peerAdded !== null)
+      ? ServerMessage_PeerAdded.fromPartial(object.peerAdded)
+      : undefined;
+    message.peerDeleted = (object.peerDeleted !== undefined && object.peerDeleted !== null)
+      ? ServerMessage_PeerDeleted.fromPartial(object.peerDeleted)
       : undefined;
     return message;
   },
