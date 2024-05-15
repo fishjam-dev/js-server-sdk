@@ -42,7 +42,7 @@ jobs:
         run: npm run format:check
 
       - name: Check typing
-        run: echo `ls ../..` && npm run build:check
+        run: npm run build:check
 
       - name: Check linting
         run: npm run lint:check
