@@ -1,6 +1,6 @@
-# Jellyfish server SDK for JavaScript
+# Fishjam server SDK for JavaScript
 
-JavaScript server-side SDK for [Jellyfish](https://github.com/jellyfish-dev/jellyfish).
+JavaScript server-side SDK for [Fishjam](https://github.com/jellyfish-dev/jellyfish).
 
 ## Installation
 
@@ -19,21 +19,21 @@ To generate it locally, run:
 npm run docs
 ```
 
-For more comprehensive tutorial on the Jellyfish Server, its capabilites and production usage, refer to
-[Jellyfish docs](https://jellyfish-dev.github.io/jellyfish-docs/).
+For more comprehensive tutorial on the Fishjam Server, its capabilites and production usage, refer to
+[Fishjam docs](https://jellyfish-dev.github.io/jellyfish-docs/).
 
 ## Examples
 
 See [examples](https://github.com/jellyfish-dev/js-server-sdk/tree/main/examples) directory.
 
-## Jellyfish ecosystem
+## Fishjam ecosystem
 
 |                |                                                                                                                                                                                                                                                                                                                                                 |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 📱 Client SDKs | [JavaScript](https://github.com/jellyfish-dev/ts-client-sdk/) <br/> [React](https://github.com/jellyfish-dev/react-client-sdk) <br/> [iOS](https://github.com/jellyfish-dev/ios-client-sdk) <br/> [Android](https://github.com/jellyfish-dev/android-client-sdk) <br/> [React Native](https://github.com/jellyfish-dev/react-native-client-sdk) |
 | ⚙️ Server SDKs | [JavaScript](https://github.com/jellyfish-dev/js-server-sdk) <br/> [Python](https://github.com/jellyfish-dev/python-server-sdk) <br/> [Elixir](https://github.com/jellyfish-dev/elixir_server_sdk)                                                                                                                                              |
-| 📚 Resources   | [Jellyfish Docs](https://jellyfish-dev.github.io/jellyfish-docs/) <br/> [Membrane Framework](https://membrane.stream/) <br/> [Join Membrane Discord!](https://discord.gg/nwnfVSY)                                                                                                                                                               |
-| 🪼 Services    | [Videoroom](https://github.com/jellyfish-dev/jellyfish_videoroom) <br/> A videoconferencing app built on top of Jellyfish <br/><br/> [Dashboard](https://github.com/jellyfish-dev/jellyfish-dashboard) <br/> An all-around development tool for Jellyfish                                                                                       |
+| 📚 Resources   | [Fishjam Docs](https://jellyfish-dev.github.io/jellyfish-docs/) <br/> [Membrane Framework](https://membrane.stream/) <br/> [Join Membrane Discord!](https://discord.gg/nwnfVSY)                                                                                                                                                               |
+| 🪼 Services    | [Videoroom](https://github.com/jellyfish-dev/jellyfish_videoroom) <br/> A videoconferencing app built on top of Fishjam <br/><br/> [Dashboard](https://github.com/jellyfish-dev/jellyfish-dashboard) <br/> An all-around development tool for Fishjam                                                                                       |
 
 ## Contributing
 
