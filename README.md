@@ -1,39 +1,39 @@
-# Jellyfish server SDK for JavaScript
+# Fishjam server SDK for JavaScript
 
-JavaScript server-side SDK for [Jellyfish](https://github.com/jellyfish-dev/jellyfish).
+JavaScript server-side SDK for [Fishjam](https://github.com/fishjam-dev/fishjam).
 
 ## Installation
 
 You can install the library using `npm`:
 
 ```bash
-npm install @jellyfish-dev/js-server-sdk
+npm install @fishjam-dev/js-server-sdk
 ```
 
 ## Documentation
 
-The documentation for the latest release is available [here](https://jellyfish-dev.github.io/js-server-sdk/latest).
+The documentation for the latest release is available [here](https://fishjam-dev.github.io/js-server-sdk/latest).
 To generate it locally, run:
 
 ```bash
 npm run docs
 ```
 
-For more comprehensive tutorial on the Jellyfish Server, its capabilites and production usage, refer to
-[Jellyfish docs](https://jellyfish-dev.github.io/jellyfish-docs/).
+For more comprehensive tutorial on the Fishjam Server, its capabilites and production usage, refer to
+[Fishjam docs](https://fishjam-dev.github.io/fishjam-docs/).
 
 ## Examples
 
-See [examples](https://github.com/jellyfish-dev/js-server-sdk/tree/main/examples) directory.
+See [examples](https://github.com/fishjam-dev/js-server-sdk/tree/main/examples) directory.
 
-## Jellyfish ecosystem
+## Fishjam ecosystem
 
-|                |                                                                                                                                                                                                                                                                                                                                                 |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 📱 Client SDKs | [JavaScript](https://github.com/jellyfish-dev/ts-client-sdk/) <br/> [React](https://github.com/jellyfish-dev/react-client-sdk) <br/> [iOS](https://github.com/jellyfish-dev/ios-client-sdk) <br/> [Android](https://github.com/jellyfish-dev/android-client-sdk) <br/> [React Native](https://github.com/jellyfish-dev/react-native-client-sdk) |
-| ⚙️ Server SDKs | [JavaScript](https://github.com/jellyfish-dev/js-server-sdk) <br/> [Python](https://github.com/jellyfish-dev/python-server-sdk) <br/> [Elixir](https://github.com/jellyfish-dev/elixir_server_sdk)                                                                                                                                              |
-| 📚 Resources   | [Jellyfish Docs](https://jellyfish-dev.github.io/jellyfish-docs/) <br/> [Membrane Framework](https://membrane.stream/) <br/> [Join Membrane Discord!](https://discord.gg/nwnfVSY)                                                                                                                                                               |
-| 🪼 Services    | [Videoroom](https://github.com/jellyfish-dev/jellyfish_videoroom) <br/> A videoconferencing app built on top of Jellyfish <br/><br/> [Dashboard](https://github.com/jellyfish-dev/jellyfish-dashboard) <br/> An all-around development tool for Jellyfish                                                                                       |
+|                |                                                                                                                                                                                                                                                                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 📱 Client SDKs | [TypeScript](https://github.com/fishjam-dev/ts-client-sdk/) <br/> [React](https://github.com/fishjam-dev/react-client-sdk) <br/> [iOS](https://github.com/fishjam-dev/ios-client-sdk) <br/> [Android](https://github.com/fishjam-dev/android-client-sdk) <br/> [React Native](https://github.com/fishjam-dev/react-native-client-sdk) |
+| ⚙️ Server SDKs | [JavaScript](https://github.com/fishjam-dev/js-server-sdk) <br/> [Python](https://github.com/fishjam-dev/python-server-sdk) <br/> [Elixir](https://github.com/fishjam-dev/elixir_server_sdk)                                                                                                                                          |
+| 📚 Resources   | [Fishjam Docs](https://fishjam-dev.github.io/fishjam-docs/) <br/> [Membrane Framework](https://membrane.stream/) <br/> [Join Membrane Discord!](https://discord.gg/nwnfVSY)                                                                                                                                                           |
+| 🪼 Services    | [Videoroom](https://github.com/fishjam-dev/fishjam-videoroom) <br/> A videoconferencing app built on top of Fishjam <br/><br/> [Dashboard](https://github.com/fishjam-dev/fishjam-dashboard) <br/> An all-around development tool for Fishjam                                                                                         |
 
 ## Contributing
 
@@ -42,8 +42,8 @@ with your own bug fixes or features.
 
 ## Copyright and License
 
-Copyright 2024, [Software Mansion](https://swmansion.com/?utm_source=git&utm_medium=readme&utm_campaign=jellyfish)
+Copyright 2024, [Software Mansion](https://swmansion.com/?utm_source=git&utm_medium=readme&utm_campaign=fishjam)
 
-[![Software Mansion](https://logo.swmansion.com/logo?color=white&variant=desktop&width=200&tag=membrane-github)](https://swmansion.com/?utm_source=git&utm_medium=readme&utm_campaign=jellyfish)
+[![Software Mansion](https://logo.swmansion.com/logo?color=white&variant=desktop&width=200&tag=membrane-github)](https://swmansion.com/?utm_source=git&utm_medium=readme&utm_campaign=fishjam)
 
 Licensed under the [Apache License, Version 2.0](LICENSE)
