@@ -1,16 +1,16 @@
 {
-  "name": "@jellyfish-dev/room-manager",
+  "name": "@fishjam-dev/room-manager",
   "version": "0.1.0",
-  "description": "A room manager for Jellyfish",
-  "homepage": "https://github.com/jellyfish-dev/js-server-sdk/examples/room-manager",
+  "description": "A room manager for Fishjam",
+  "homepage": "https://github.com/fishjam-dev/js-server-sdk/examples/room-manager",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jellyfish-dev/js-server-sdk.git"
+    "url": "https://github.com/fishjam-dev/js-server-sdk.git"
   },
   "license": "Apache-2.0",
   "keywords": [
     "webrtc",
-    "jellyfish",
+    "fishjam",
     "membrane"
   ],
   "main": "./dist/index.js",
@@ -28,7 +28,7 @@
     "lint:check": "eslint src"
   },
   "dependencies": {
-    "@jellyfish-dev/js-server-sdk": "file:../../",
+    "@fishjam-dev/js-server-sdk": "file:../../",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
