@@ -1,7 +1,7 @@
 services:
-  jellyfish:
-    image: 'ghcr.io/jellyfish-dev/jellyfish:${JELLYFISH_VERSION:-edge}'
-    container_name: jellyfish
+  fishjam:
+    image: 'ghcr.io/fishjam-dev/fishjam:${FISHJAM_VERSION:-edge}'
+    container_name: fishjam
     restart: on-failure
     healthcheck:
       test: >
@@ -10,14 +10,14 @@ services:
       retries: 2
       timeout: 2s
     environment:
-      JF_PORT: 5002
-      JF_HOST: 'localhost:5002'
-      JF_WEBRTC_TURN_IP: '${EXTERNAL_IP:-127.0.0.1}'
-      JF_WEBRTC_TURN_LISTEN_IP: '0.0.0.0'
-      JF_WEBRTC_TURN_PORT_RANGE: '50000-50050'
-      JF_WEBRTC_TURN_TCP_PORT: '49999'
-      JF_SERVER_API_TOKEN: 'development'
-      JF_CHECK_ORIGIN: 'false'
+      FJ_PORT: 5002
+      FJ_HOST: 'localhost:5002'
+      FJ_WEBRTC_TURN_IP: '${EXTERNAL_IP:-127.0.0.1}'
+      FJ_WEBRTC_TURN_LISTEN_IP: '0.0.0.0'
+      FJ_WEBRTC_TURN_PORT_RANGE: '50000-50050'
+      FJ_WEBRTC_TURN_TCP_PORT: '49999'
+      FJ_SERVER_API_TOKEN: 'development'
+      FJ_CHECK_ORIGIN: 'false'
     ports:
       - '5002:5002'
       - '49999:49999'

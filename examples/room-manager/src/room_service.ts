@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { type Room as RemoteRoom, type Peer as RemoteUser, RoomApi } from '@jellyfish-dev/js-server-sdk';
+import { type Room as RemoteRoom, type Peer as RemoteUser, RoomApi } from '@fishjam-dev/js-server-sdk';
 
 import type {
   ServerMessage,
@@ -8,7 +8,7 @@ import type {
   ServerMessage_PeerDeleted,
   ServerMessage_RoomCrashed,
   ServerMessage_RoomDeleted,
-} from '@jellyfish-dev/js-server-sdk/proto';
+} from '@fishjam-dev/js-server-sdk/proto';
 
 import config from './config';
 
@@ -39,15 +39,15 @@ export class RoomService {
       },
     });
 
-    this.roomApi = new RoomApi(undefined, config.jellyfishUrl, client);
-    this.tls = config.jellyfishUrl.startsWith('https');
+    this.roomApi = new RoomApi(undefined, config.fishjamUrl, client);
+    this.tls = config.fishjamUrl.startsWith('https');
   }
 
   async findOrCreateUser(roomId: string, userId: string): Promise<User> {
     const room = await this.findOrCreateRoom(roomId);
     let user = room.users.get(userId);
 
-    // make sure the user exists on the Jellyfish server as well
+    // make sure the user exists on the Fishjam server as well
     const remoteUser = user ? await this.findRemoteUser(roomId, user.peerId) : null;
 
     if (user && remoteUser) {
@@ -63,7 +63,7 @@ export class RoomService {
     return user;
   }
 
-  handleJellyfishMessage(notification: ServerMessage): void {
+  handleFishjamMessage(notification: ServerMessage): void {
     Object.entries(notification)
       .filter(([_key, value]) => value)
       .forEach(([key, value]) => {
@@ -91,7 +91,7 @@ export class RoomService {
     const remoteRoom = await this.findRemoteRoom(roomId);
 
     if (!(room && remoteRoom)) {
-      await this.findOrCreateRoomInJellyfish(roomId);
+      await this.findOrCreateRoomInFishjam(roomId);
 
       room = { roomId, users: new Map() };
 
@@ -106,7 +106,7 @@ export class RoomService {
       data: { data },
     } = await this.roomApi.addPeer(roomId, { type: 'webrtc', options: { enableSimulcast: config.enableSimulcast } });
 
-    const peerWebsocketUrl = data.peer_websocket_url ?? config.jellyfishUrl + '/socket/peer/websocket';
+    const peerWebsocketUrl = data.peer_websocket_url ?? config.fishjamUrl + '/socket/peer/websocket';
 
     const peerId = data.peer.id;
 
@@ -121,7 +121,7 @@ export class RoomService {
     return user;
   }
 
-  private async findOrCreateRoomInJellyfish(roomId: string): Promise<void> {
+  private async findOrCreateRoomInFishjam(roomId: string): Promise<void> {
     try {
       // Check if the room exists in the application.
       // This may happen when someone creates a room outside of this application
@@ -129,12 +129,12 @@ export class RoomService {
       const room = (await this.roomApi.getAllRooms()).data.data.find((room) => room.id === roomId);
 
       if (room) {
-        console.warn({ message: 'Room already exists in Jellyfish', roomId });
+        console.warn({ message: 'Room already exists in Fishjam', roomId });
 
         return;
       }
 
-      console.log({ message: 'Creating a room in Jellyfish', roomId });
+      console.log({ message: 'Creating a room in Fishjam', roomId });
 
       const optionalConfig = {
         maxPeers: config.maxPeers,
@@ -151,7 +151,7 @@ export class RoomService {
     } catch (error) {
       const stringified = JSON.stringify(error);
 
-      console.error({ message: `Failed to create room in Jellyfish due to ${stringified}`, roomId });
+      console.error({ message: `Failed to create room in Fishjam due to ${stringified}`, roomId });
 
       throw error;
     }

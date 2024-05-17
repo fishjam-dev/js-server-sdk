@@ -12,7 +12,7 @@ A simple web server that uses the SDK to manage rooms and users on a Fishjam ser
 To start the Fishjam server and the Room Manager, run the following commands:
 
 ```sh
-EXTERNAL_IP=`ifconfig | grep 192.168 | cut -d ' ' -f 2` JELLYFISH_VERSION=edge docker compose up
+EXTERNAL_IP=`ifconfig | grep 192.168 | cut -d ' ' -f 2` FISHJAM_VERSION=edge docker compose up
 cp .env.example .env
 npm install
 npm start

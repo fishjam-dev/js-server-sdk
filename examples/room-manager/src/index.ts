@@ -1,7 +1,7 @@
 import express, { type RequestHandler } from 'express';
 import bodyParser from 'body-parser';
 
-import { ServerMessage } from '@jellyfish-dev/js-server-sdk/proto';
+import { ServerMessage } from '@fishjam-dev/js-server-sdk/proto';
 
 import config from './config';
 import { RoomService } from './room_service';
@@ -23,7 +23,7 @@ app.post('/webhook', bodyParser.raw({ type: 'application/x-protobuf' }), (req, r
   if (contentType === 'application/x-protobuf' && Buffer.isBuffer(req.body)) {
     const message = ServerMessage.decode(req.body);
 
-    roomService.handleJellyfishMessage(message);
+    roomService.handleFishjamMessage(message);
 
     res.status(200).send();
   } else {
