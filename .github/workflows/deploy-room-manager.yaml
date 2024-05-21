@@ -22,8 +22,9 @@ jobs:
 
       - name: Run Room Manager example
         run: |
-          docker run -d -p 8080:8080 \
+          docker run -d -p 80:8080 \
           --name gh-runner-room-manager \
+          --restart always \
           -e PORT=8080 \
           -e PEERLESS_PURGE_TIMEOUT=600 \
           -e FISHJAM_URL=${{ secrets.ROOM_MANAGER_FISHJAM_URL }} \
