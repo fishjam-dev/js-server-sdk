@@ -28,7 +28,7 @@
     "lint:check": "eslint src"
   },
   "dependencies": {
-    "@fishjam-dev/js-server-sdk": "file:../../",
+    "@fishjam-dev/js-server-sdk": "file:../..",
     "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "dotenv": "^16.4.5",
