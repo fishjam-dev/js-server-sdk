@@ -40,6 +40,11 @@ See [examples](https://github.com/fishjam-dev/js-server-sdk/tree/main/examples) 
 We welcome contributions to this SDK. Please report any bugs or issues you find or feel free to make a pull request
 with your own bug fixes or features.
 
+### Releasing new versions
+
+To release a new version of the package, go to `Actions` > `Release package` workflow and trigger it with the chosen release type.
+The workflow will bump the package version in `package.json`, release the package to NPM, create a new git tag and a GitHub release.
+
 ## Copyright and License
 
 Copyright 2024, [Software Mansion](https://swmansion.com/?utm_source=git&utm_medium=readme&utm_campaign=fishjam)
