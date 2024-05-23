@@ -69,9 +69,9 @@ jobs:
           cd room-manager && npm i @fishjam-dev/js-server-sdk && cd ..
 
       # Commit changes
-      - name: Commit package.json and example's lockfile changes and create tag
+      - name: Commit changed files and create a new tag
         run: |
-          git add package.json examples/room-manager/package-lock.json
+          git add package.json package-lock.json examples/room-manager/package-lock.json
           git commit -m "Release ${{ env.TAG_NAME }}"
           git tag ${{ env.TAG_NAME }}
 
