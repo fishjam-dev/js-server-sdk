@@ -2,20 +2,15 @@
   "name": "@fishjam-dev/js-server-sdk",
   "version": "0.1.0",
   "description": "Fishjam server SDK for JavaScript",
-  "homepage": "https://github.com/fishjam-dev/js-server-sdk",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fishjam-dev/js-server-sdk.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fishjam-dev/js-server-sdk/issues"
-  },
   "license": "Apache-2.0",
+  "author": "Software Mansion (https://swmansion.com)",
+  "repository": "github:fishjam-dev/js-server-sdk",
+  "homepage": "https://github.com/fishjam-dev/js-server-sdk#readme",
+  "bugs": "https://github.com/fishjam-dev/js-server-sdk/issues",
   "keywords": [
     "webrtc",
-    "fishjam",
-    "server",
-    "membrane"
+    "membrane",
+    "fishjam"
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
